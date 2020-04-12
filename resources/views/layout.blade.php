@@ -65,7 +65,10 @@
         <div class="container h-100">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="site-title">Home</div>
+                <div class="site-title">{{ $name ?? 'Home' }}</div>
+                <div class="actions">
+                    @yield('actions');
+                </div>
                 </div>
             </div>
         </div>
