@@ -4,22 +4,27 @@
 <div class="container mb-5">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form action="{{ route('shout.save') }}" method="POST" class="mt-5 mb-5">
+            <form action="{{ route('shout.saveprofile') }}" method="POST" class="mt-5 mb-5" enctype="multipart/form-data" >
                 @csrf
                 <h4 class="mb-5">Update Your Profile</h4>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="shadow-sm form-control">
+                <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" class="shadow-sm form-control">
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" class="shadow-sm form-control">
+                    <input type="text" name="email" value="{{ Auth::user()->email }}" id="email" class="shadow-sm form-control">
                 </div>
 
                 <div class="form-group">
-                    <label for="username">Nickname</label>
-                    <input type="text" name="username" id="username" class="shadow-sm form-control">
+                    <label for="nickname">Nickname</label>
+                    <input type="text" name="nickname" value="{{ Auth::user()->nickname }}" id="nickname" class="shadow-sm form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="image">Profile Picture</label>
+                    <input type="file" name="image" id="image" class="form-control-file">
                 </div>
                 
                 <div class="form-group">

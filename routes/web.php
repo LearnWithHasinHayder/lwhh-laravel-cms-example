@@ -25,3 +25,4 @@ Route::get( '/home', 'HomeController@index' )->name( 'home' );
 Route::get( '/shout', [HomeController::class,'shoutHome'])->name('shout');
 Route::post( '/savestatus', [HomeController::class,'saveStatus'])->name('shout.save');
 Route::get( '/profile', [HomeController::class,'profile'])->name('shout.profile');
+Route::post( '/saveprofile', [HomeController::class,'saveProfile'])->name('shout.saveprofile');
