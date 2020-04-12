@@ -15,13 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get( '/', function () {
+/* Route::get( '/', function () {
     return view( 'welcome' );
-} );
+} ); */
 
 Auth::routes();
 
 Route::get( '/home', 'HomeController@index' )->name( 'home' );
+Route::get( '/', 'WelcomeController@index' );
 Route::get( '/shout', [HomeController::class,'shoutHome'])->name('shout');
 Route::post( '/savestatus', [HomeController::class,'saveStatus'])->name('shout.save');
 Route::get( '/profile', [HomeController::class,'profile'])->name('shout.profile');

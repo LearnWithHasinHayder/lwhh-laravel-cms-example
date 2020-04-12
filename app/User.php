@@ -43,6 +43,7 @@ class User extends Authenticatable {
     public function status() {
         return $this->hasMany( \App\Status::class );
     }
+    
     public function friendsStatus() {
         return $this->hasManyThrough(
             \App\Status::class,

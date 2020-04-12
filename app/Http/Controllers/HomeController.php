@@ -31,7 +31,16 @@ class HomeController extends Controller {
         //return view("shouthome");
         $userId = Auth::id();
 
-        $status = Status::where( 'user_id', $userId )->orderBy( 'id', 'desc' )->get();
+        if(Friend::where('user_id',$userId)->where('friend_id',$userId)->count()==0){
+            $friendship = new Friend();
+            $friendship->user_id = $userId;
+            $friendship->friend_id = $userId;
+            $friendship->save();
+        }
+
+        //$status = Status::where( 'user_id', $userId )->orderBy( 'id', 'desc' )->get();
+        $status = Auth::user()->friendsStatus;
+        
         $avatar = empty( Auth::user()->avatar ) ? asset( 'images/avatar.jpg' ) : Auth::user()->avatar;
         return view( "shouthome", array( 'status' => $status, 'avatar' => $avatar ) );
     }
