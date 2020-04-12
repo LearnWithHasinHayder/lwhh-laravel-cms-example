@@ -39,5 +39,8 @@
 @endsection
 
 @section('actions')
-    {{-- <a href='{{ route('shout.makefriend',2)}}'>Make Friend</a> --}}
+    @if ($displayActions)
+    <a href='{{ route('shout.makefriend',$friendId)}}'>Make Friend</a> |
+    <a href='{{ route('shout.unfriend',$friendId)}}'>Unfriend</a> 
+    @endif
 @endsection
